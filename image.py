@@ -1,13 +1,13 @@
 import cv2
-
+#Load the cascade
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 #Read the input image
-img = cv2.imread('vit.JPG')
-
+img = cv2.imread('group.jpg')
+#Convert into GrayScale
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
+#Detect Faces
 faces = face_cascade.detectMultiScale(gray, 1.1, 4)
-
+#Draw rectangle around each faces
 for (x, y, w, h) in faces:
     cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
 #Display the output
